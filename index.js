@@ -70,7 +70,7 @@ form.addEventListener("submit", e => {
       }
       const icon = 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/' + randomIcon + '.svg';
       const figCaption = iconToDesc.get(randomIcon);
-      var max = 56.7;
+      var max = 96.5;
       var min = -89.2;
       var temperature = (Math.random() * (max - min) + min).toFixed(1);
       while(temperature == main.temp.toFixed(1))
