@@ -6,25 +6,25 @@ const list = document.querySelector(".ajax-section .cities");
 /*SUBSCRIBE HERE FOR API KEY: https://home.openweathermap.org/users/sign_up*/
 const apiKey = "5248ee6bf4933110824c87c82ea6c9e2";
 const icons = ["01d","01n","02d","02n","03d","03n","04d","04n","09d","09n","10d","10n","11d","11n","13d","13n","50d","50n"];
-const iconToDescAndTemp = new Map();
-iconToDescAndTemp.set("01d",["clear sky", 48]);
-iconToDescAndTemp.set("01n",["clear sky", 33]);
-iconToDescAndTemp.set("02d",["few clouds", 21]);
-iconToDescAndTemp.set("02n",["few clouds", 11]);
-iconToDescAndTemp.set("03d",["scattered clouds",29]);
-iconToDescAndTemp.set("03n",["scattered clouds",23]);
-iconToDescAndTemp.set("04d",["broken clouds", 25]);
-iconToDescAndTemp.set("04n",["broken clouds", 12]);
-iconToDescAndTemp.set("09d",["shower rain", 29]);
-iconToDescAndTemp.set("09n",["shower rain", 7]);
-iconToDescAndTemp.set("10d",["rain", 17]);
-iconToDescAndTemp.set("10n",["rain", -1]);
-iconToDescAndTemp.set("11d",["thunderstorm", 30]);
-iconToDescAndTemp.set("11n",["thunderstorm", 25]);
-iconToDescAndTemp.set("13d",["snow", 0]);
-iconToDescAndTemp.set("13n",["snow", -35]);
-iconToDescAndTemp.set("50d",["mist", 21]);
-iconToDescAndTemp.set("50n",["mist", 15]);
+const iconToDesc = new Map();
+iconToDesc.set("01d","clear sky");
+iconToDesc.set("01n","clear sky");
+iconToDesc.set("02d","few clouds");
+iconToDesc.set("02n","few clouds");
+iconToDesc.set("03d","scattered clouds");
+iconToDesc.set("03n","scattered clouds");
+iconToDesc.set("04d","broken clouds");
+iconToDesc.set("04n","broken clouds");
+iconToDesc.set("09d","shower rain");
+iconToDesc.set("09n","shower rain");
+iconToDesc.set("10d","rain");
+iconToDesc.set("10n","rain");
+iconToDesc.set("11d","thunderstorm");
+iconToDesc.set("11n","thunderstorm");
+iconToDesc.set("13d","snow");
+iconToDesc.set("13n","snow");
+iconToDesc.set("50d","mist");
+iconToDesc.set("50n","mist");
 
 form.addEventListener("submit", e => {
   e.preventDefault();
@@ -69,10 +69,14 @@ form.addEventListener("submit", e => {
           randomIcon = icons[Math.floor(Math.random()*icons.length)];
       }
       const icon = 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/' + randomIcon + '.svg';
-      const mapping = iconToDescAndTemp.get(randomIcon);
-      const figCaption = mapping[0];
-      const temperature = Math.round(mapping[1]);
-      console.log(temperature);
+      const figCaption = iconToDesc.get(randomIcon);
+      var max = 56.7;
+      var min = -89.2;
+      var temperature = (Math.random() * (max - min) + min).toFixed(1);
+      while(temperature == main.temp.toFixed(1))
+      {
+          temperature = (Math.random() * (max - min) + min).toFixed(1);
+      }
 
       const li = document.createElement("li");
       li.classList.add("city");
@@ -81,7 +85,7 @@ form.addEventListener("submit", e => {
           <span>${name}</span>
           <sup>${sys.country}</sup>
         </h2>
-        <div class="city-temp">${temperature}&deg;</div>
+        <div class="city-temp">${temperature}&deg;C</div>
         <figure>
           <img class="city-icon" src="${icon}" alt="${
         weather[0]["description"]

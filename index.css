@@ -124,7 +124,7 @@ button {
 }
 
 .ajax-section .city-temp {
-  font-size: 5rem;
+  font-size: 4rem;
   font-weight: bold;
   margin-top: 10px;
   color: var(--text_dark);

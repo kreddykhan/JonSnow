@@ -1,6 +1,7 @@
 Overview
 ----
 Mini web based weather client that in the spirit of Jon Snow from GoT knows nothing.
+You can learn nothing about your weather here: https://kreddykhan.github.io/JonSnow/
 
 Using this client you will know nothing about the actual weather in your location, but you will know a lot about not the weather in your location.
 
