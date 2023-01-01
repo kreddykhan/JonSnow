@@ -106,5 +106,25 @@ form.addEventListener("submit", e => {
   input.focus();
 });
 
+function celsiusFunction() {
+    event.preventDefault()
+    var x = document.getElementById("celsius");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
+
+function actualWeatherFunction() {
+    event.preventDefault()
+    var x = document.getElementById("actualWeather");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
+
 // <figcaption>${weather[0]["description"]}</figcaption>
 // <div class="city-temp">${Math.round(main.temp)}<sup>°C</sup></div>

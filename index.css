@@ -19,6 +19,7 @@
 }
 
 footer{
+    margin-top: 10px;
     font-size: 1rem;
     text-align: center;
 }
@@ -47,6 +48,12 @@ li {
 button {
     border-radius: 20px;
 }
+
+.button-celsius  {
+     /* position:absolute; */
+     /* top:20; */
+     /* right:20; */
+ }
 
 
 @media screen and (max-width: 700px) {
@@ -112,6 +119,20 @@ button {
   color: var(--text_med);
   /* border: 3px solid black;
   background: #8BA0C6; */
+}
+
+.sass-box {
+  position: relative;
+  padding: 20px;
+  border-width: thick;
+  border-color: #8BA0C6;
+  border-radius: 20px;
+  border: 3px solid #8BA0C6;
+  background: white;
+  color: var(--text_med);
+  width: fit-content;
+  height: fit-content;
+  margin-bottom: 10px;
 }
 
 .ajax-section .city::after {
